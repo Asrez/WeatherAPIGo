@@ -18,10 +18,6 @@ func NewWeatherHandler(cfg *config.Config) *WeatherHandler {
 	return &WeatherHandler{}
 }
 
-type weatherResponse struct {
-
-}
-
 func (w *WeatherHandler) Current(c *gin.Context) {
 	cfg := config.GetConfig()
 	req := new(dto.Weather)
