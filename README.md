@@ -30,7 +30,7 @@ Alternatively, you can download the source code as a ZIP file and extract it.
 Change to the project directory:
 
 ```bash
-cd WeatherAPIGo
+cd WeatherAPIGo/cmd
 ```
 
 Build the project:
@@ -42,10 +42,10 @@ go build
 Run the executable:
 
 ```bash
-./weatherapigo
+./cmd
 ```
 
-By default, the server will start on localhost at port 8080. You can access the API using the base URL http://localhost:8080.
+By default, the server will start on localhost at port 8080. You can access the API using the base URL http://localhost:5005.
 
 ## API Endpoints
 The following API endpoints are available:
