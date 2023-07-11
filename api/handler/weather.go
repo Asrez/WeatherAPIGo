@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"fmt"
+	"encoding/json"
 	"io/ioutil"
 	"net/http"
 	"github.com/Asrez/WeatherAPIGo/api/dto"
@@ -18,7 +18,12 @@ func NewWeatherHandler(cfg *config.Config) *WeatherHandler {
 	return &WeatherHandler{}
 }
 
+type weatherResponse struct {
+
+}
+
 func (w *WeatherHandler) Current(c *gin.Context) {
+	cfg := config.GetConfig()
 	req := new(dto.Weather)
 	err := c.ShouldBindJSON(&req)
 	if err != nil {
@@ -27,7 +32,7 @@ func (w *WeatherHandler) Current(c *gin.Context) {
 		return
 	}
 
-	url := fmt.Sprintf("http://api.weatherapi.com/v1/current.json?key=b49199ccd7464afa8a691054231107&q=London&aqi=no")
+	url := cfg.API.BaseUrl +"?key="+ cfg.API.Token +"&q="+ req.City +"&aqi=no"
 	response, err := http.Get(url)
 	if err != nil {
 		c.AbortWithStatusJSON(helper.TranslateErrorToStatusCode(err),
@@ -43,5 +48,13 @@ func (w *WeatherHandler) Current(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusCreated, helper.GenerateBaseResponse(responseData, true, helper.Success))
+	var weatherData map[string]interface{}
+	err = json.Unmarshal(responseData, &weatherData)
+	if err != nil {
+		c.AbortWithStatusJSON(helper.TranslateErrorToStatusCode(err),
+			helper.GenerateBaseResponseWithError(nil, false, helper.InternalError, err))
+		return
+	}
+
+	c.JSON(http.StatusCreated, helper.GenerateBaseResponse(weatherData, true, helper.Success))
 }
