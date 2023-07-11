@@ -3,6 +3,7 @@ package api
 import (
 	"fmt"
 
+	"github.com/Asrez/WeatherAPIGo/api/middlewares"
 	"github.com/Asrez/WeatherAPIGo/api/routers"
 	"github.com/Asrez/WeatherAPIGo/config"
 	"github.com/Asrez/WeatherAPIGo/packge/logging"
@@ -35,7 +36,7 @@ func RegisterRoutes(r *gin.Engine, cfg *config.Config) {
 		users := v1.Group("/users")
 		routers.User(users, cfg)
 		// Weather
-		weather := v1.Group("/weather")
+		weather := v1.Group("/weather" , middlewares.Authentication(cfg))
 		routers.Weather(weather , cfg)
 	}
 }
