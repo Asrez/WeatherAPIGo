@@ -1,7 +1,7 @@
 package services
 
 import (
-	"github.com/Asrez/WeatherAPIGo/api/odt"
+	"github.com/Asrez/WeatherAPIGo/api/dto"
 	"github.com/Asrez/WeatherAPIGo/config"
 	"github.com/Asrez/WeatherAPIGo/data/db"
 	"github.com/Asrez/WeatherAPIGo/data/models"

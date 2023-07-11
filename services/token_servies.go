@@ -3,11 +3,11 @@ package services
 import (
 	"time"
 
+	"github.com/Asrez/WeatherAPIGo/api/dto"
 	"github.com/Asrez/WeatherAPIGo/config"
 	"github.com/Asrez/WeatherAPIGo/constants"
 	"github.com/Asrez/WeatherAPIGo/packge/logging"
 	"github.com/Asrez/WeatherAPIGo/packge/service_errors"
-	"github.com/Asrez/WeatherAPIGo/api/odt"
 	"github.com/golang-jwt/jwt"
 )
 

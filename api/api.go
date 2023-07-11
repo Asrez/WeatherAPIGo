@@ -34,5 +34,8 @@ func RegisterRoutes(r *gin.Engine, cfg *config.Config) {
 		// User
 		users := v1.Group("/users")
 		routers.User(users, cfg)
+		// Weather
+		weather := v1.Group("/weather")
+		routers.Weather(weather , cfg)
 	}
 }

@@ -17,6 +17,7 @@ type Config struct {
 	Logger   LoggerConfig
 	Otp      OtpConfig
 	JWT      JWTConfig
+	API 	WeatherAPIConfig
 }
 
 type ServerConfig struct {
@@ -81,6 +82,12 @@ type JWTConfig struct {
 	RefreshTokenExpireDuration time.Duration
 	Secret                     string
 	RefreshSecret              string
+}
+
+type WeatherAPIConfig struct {
+	BaseURL string
+	Token string
+	
 }
 
 func GetConfig() *Config {

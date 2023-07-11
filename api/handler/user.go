@@ -1,10 +1,10 @@
-package handlers
+package handler
 
 import (
 	"net/http"
 	"github.com/Asrez/WeatherAPIGo/config"
 	"github.com/Asrez/WeatherAPIGo/services"
-	"github.com/Asrez/WeatherAPIGo/api/odt"
+	"github.com/Asrez/WeatherAPIGo/api/dto"
 	"github.com/Asrez/WeatherAPIGo/api/helper"
 	"github.com/gin-gonic/gin"
 )
