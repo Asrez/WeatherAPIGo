@@ -45,5 +45,5 @@ jwt:
   refreshTokenExpireDuration: 60
 
 api :
-  baseUrl: http://api.weatherapi.com/v1/current.json
+  baseUrl: http://api.weatherapi.com/v1/
   token : b49199ccd7464afa8a691054231107

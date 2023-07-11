@@ -1,10 +1,8 @@
 package constants
 
 const (
-	// User
 	DefaultUserName    string = "admin"
 
-	// Claims
 	AuthorizationHeaderKey string = "Authorization"
 	UserIdKey              string = "UserId"
 	FirstNameKey           string = "FirstName"
