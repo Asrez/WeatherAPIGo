@@ -17,7 +17,7 @@ type Config struct {
 	Logger   LoggerConfig
 	Otp      OtpConfig
 	JWT      JWTConfig
-	API 	WeatherAPIConfig
+	API 	APIConfig
 }
 
 type ServerConfig struct {
@@ -84,8 +84,8 @@ type JWTConfig struct {
 	RefreshSecret              string
 }
 
-type WeatherAPIConfig struct {
-	BaseURL string
+type APIConfig struct {
+	BaseUrl string
 	Token string
 	
 }
