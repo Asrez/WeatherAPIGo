@@ -8,10 +8,7 @@ import (
 
 
 func Weather(router *gin.RouterGroup, cfg *config.Config) {
-
 	h := handlers.NewWeatherHandler(cfg)
-
 	router.GET("/current" , h.Current)
-
-	
+	router.GET("/forecast",h.Forecast)
 }
