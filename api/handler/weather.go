@@ -2,6 +2,7 @@ package handler
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"github.com/Asrez/WeatherAPIGo/api/dto"
@@ -10,9 +11,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type WeatherHandler struct {
-	
-}
+type WeatherHandler struct {}
 
 func NewWeatherHandler(cfg *config.Config) *WeatherHandler {
 	return &WeatherHandler{}
@@ -28,7 +27,7 @@ func (w *WeatherHandler) Current(c *gin.Context) {
 		return
 	}
 
-	url := cfg.API.BaseUrl +"?key="+ cfg.API.Token +"&q="+ req.City +"&aqi=no"
+	url := fmt.Sprintf("%s?key=%s&q=%s&aqi=no", cfg.API.BaseUrl, cfg.API.Token, req.City)
 	response, err := http.Get(url)
 	if err != nil {
 		c.AbortWithStatusJSON(helper.TranslateErrorToStatusCode(err),
@@ -52,5 +51,5 @@ func (w *WeatherHandler) Current(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusCreated, helper.GenerateBaseResponse(weatherData, true, helper.Success))
+	c.JSON(http.StatusOK, helper.GenerateBaseResponse(weatherData, true, helper.Success))
 }
