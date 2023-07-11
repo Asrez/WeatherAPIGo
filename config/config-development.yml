@@ -44,6 +44,6 @@ jwt:
   accessTokenExpireDuration: 1440
   refreshTokenExpireDuration: 60
 
-weatherAPI :
-  baseUrl: http://api.weatherapi.com/v1/search.jso
+api :
+  baseUrl: http://api.weatherapi.com/v1/current.json
   token : b49199ccd7464afa8a691054231107
