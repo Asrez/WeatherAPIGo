@@ -1,4 +1,4 @@
-# WeatherAPIGo
+# Weather API Go
 
 WeatherAPIGo is a RESTful API service built in Go that provides weather information based on user requests. It utilizes external weather data providers to fetch accurate and up-to-date weather data.
 
